@@ -1,0 +1,3 @@
+# Project exclude paths
+/rpc-consumer/target/
+/rpc-provider/target/
