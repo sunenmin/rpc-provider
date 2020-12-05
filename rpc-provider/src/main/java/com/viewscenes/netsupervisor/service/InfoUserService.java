@@ -3,7 +3,6 @@ package com.viewscenes.netsupervisor.service;
 import com.viewscenes.netsupervisor.entity.InfoUser;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Author Matt Sun
@@ -19,14 +18,15 @@ public interface InfoUserService {
     List<InfoUser> insertInfoUser(InfoUser infoUser);
 
     //通过id获取用户信息
-    InfoUser getInfoUserById(String id);
+    InfoUser getInfoUserById(int id);
 
     //通过id删除用户信息
-    void deleteInfoUserById(String id);
+    void deleteInfoUserById(int id);
 
     //根据id查询用户名
-    String getNameById(String id);
+    String getNameById(int id);
 
     //获取所有的用户
-    Map<String,InfoUser> getAllUser();
+    List<InfoUser> getAllUser();
+
 }

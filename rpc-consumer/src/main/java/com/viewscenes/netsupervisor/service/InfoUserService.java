@@ -15,11 +15,11 @@ public interface InfoUserService {
 
     List<InfoUser> insertInfoUser(InfoUser infoUser);
 
-    InfoUser getInfoUserById(String id);
+    InfoUser getInfoUserById(int id);
 
-    void deleteInfoUserById(String id);
+    void deleteInfoUserById(int id);
 
-    String getNameById(String id);
+    String getNameById(int id);
 
     Map<String,InfoUser> getAllUser();
 }

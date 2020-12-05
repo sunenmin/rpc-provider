@@ -42,9 +42,8 @@ public class IndexController {
         CountDownLatch countDownLatch = new CountDownLatch(thread_count);
         for (int i=0;i<thread_count;i++){
             new Thread(() -> {
-                InfoUser infoUser = new InfoUser(IdUtil.getId(),"Jeen","BeiJing");
-                List<InfoUser> users = userService.insertInfoUser(infoUser);
-                logger.info("返回用户信息记录:{}", JSON.toJSONString(users));
+                InfoUser infoUser = new InfoUser((int) Math.random(),"Jeen","BeiJing");
+                logger.info("返回用户信息记录:{}");
                 countDownLatch.countDown();
             }).start();
         }
@@ -56,14 +55,14 @@ public class IndexController {
 
     @RequestMapping("getById")
     @ResponseBody
-    public InfoUser getById(String id){
+    public InfoUser getById(int id){
         logger.info("根据ID查询用户信息:{}",id);
         return userService.getInfoUserById(id);
     }
 
     @RequestMapping("getNameById")
     @ResponseBody
-    public String getNameById(String id){
+    public String getNameById(int id){
         logger.info("根据ID查询用户名称:{}",id);
         return userService.getNameById(id);
     }

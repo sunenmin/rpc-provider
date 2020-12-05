@@ -15,17 +15,17 @@ public class InfoUser  {
 	 */
 
 
-	private String id;
+	private int id;
 
     private String name;
 
     private String address;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class InfoUser  {
         this.address = address;
     }
 
-    public InfoUser(String id,String name,String address){
+    public InfoUser(int id,String name,String address){
         this.id = id;
         this.name = name;
         this.address = address;
