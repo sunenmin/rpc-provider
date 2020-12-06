@@ -13,13 +13,18 @@ import java.util.Map;
  **/
 public interface InfoUserService {
 
+    //新增用户信息
     List<InfoUser> insertInfoUser(InfoUser infoUser);
 
+    //通过id获取用户信息
     InfoUser getInfoUserById(int id);
 
+    //通过id删除用户信息
     void deleteInfoUserById(int id);
 
+    //根据id查询用户名
     String getNameById(int id);
 
-    Map<String,InfoUser> getAllUser();
+    //获取所有的用户
+    List<InfoUser> getAllUser();
 }

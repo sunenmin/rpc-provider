@@ -16,8 +16,11 @@ import java.util.Map;
  */
 public interface InfoUserMapper extends BaseMapper<InfoUser> {
 
-    //新增用户信息
+    //新增用户信息,包含用户id
     void insertInfoUser(InfoUser infoUser);
+
+    //新增用户信息，返回新增用户id
+    int insertInfoUserNoId(InfoUser infoUser);
 
     //通过id获取用户信息
     InfoUser getInfoUserById(@Param("id") int id);

@@ -27,13 +27,13 @@ public class IndexController {
     @Autowired
     InfoUserService userService;
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     @ResponseBody
     public String index(){
         return  new Date().toString();
     }
 
-    @RequestMapping("insert")
+    @RequestMapping("/insert")
     @ResponseBody
     public List<InfoUser> getUserList() throws InterruptedException {
 
@@ -43,7 +43,7 @@ public class IndexController {
         for (int i=0;i<thread_count;i++){
             new Thread(() -> {
                 InfoUser infoUser = new InfoUser((int) Math.random(),"Jeen","BeiJing");
-                logger.info("返回用户信息记录:{}");
+                userService.insertInfoUser(infoUser);
                 countDownLatch.countDown();
             }).start();
         }
@@ -76,7 +76,7 @@ public class IndexController {
         CountDownLatch countDownLatch = new CountDownLatch(thread_count);
         for (int i=0;i<thread_count;i++){
             new Thread(() -> {
-                Map<String, InfoUser> allUser = userService.getAllUser();
+                List<InfoUser> allUser = userService.getAllUser();
                 logger.info("查询所有用户信息：{}",JSONObject.toJSONString(allUser));
                 countDownLatch.countDown();
             }).start();

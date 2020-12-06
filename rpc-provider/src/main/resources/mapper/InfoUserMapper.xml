@@ -16,6 +16,10 @@
 
     <!-- 保存用户 -->
     <insert id="insertInfoUser" parameterType="com.viewscenes.netsupervisor.entity.InfoUser">
+        insert into InfoUser (id,name,address) values(#{id},#{name},#{address})
+    </insert>
+
+    <insert id="insertInfoUserNoId" useGeneratedKeys="true" keyProperty="id" parameterType="com.viewscenes.netsupervisor.entity.InfoUser">
         insert into InfoUser (name,address) values(#{name},#{address})
     </insert>
 

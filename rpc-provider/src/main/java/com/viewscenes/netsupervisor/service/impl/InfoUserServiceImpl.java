@@ -67,14 +67,14 @@ public class InfoUserServiceImpl implements InfoUserService {
 
     @ResponseBody
     @RequestMapping("/test")
-    public void test(){
-
+    public  int  test(){
         InfoUser infoUser = new InfoUser();
-        for (int i=100; i <1000; i++){
-            infoUser.setName("sun"+i);
-            infoUser.setAddress("中国");
-            infoUserMap.insertInfoUser(infoUser);
-        }
+        infoUser.setName("test!!!1");
+        infoUser.setAddress("beijing");
+        infoUserMap.insertInfoUserNoId(infoUser);
+        return infoUser.getId();
+
+
     }
 
 }
